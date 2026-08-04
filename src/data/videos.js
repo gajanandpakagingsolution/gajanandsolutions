@@ -1,0 +1,36 @@
+// Gallery videos. To add more later: just add another object here, plus a
+// matching pair of ref codes in src/data/imageMap.js. No component code
+// needs to change — the grid grows automatically.
+
+export const galleryVideos = [
+  { id: "001", title: "Video 1", videoRef: "GAL-VIDEO-001", posterRef: "GAL-VIDEO-001-POSTER" },
+  { id: "002", title: "Video 2", videoRef: "GAL-VIDEO-002", posterRef: "GAL-VIDEO-002-POSTER" },
+  { id: "003", title: "Video 3", videoRef: "GAL-VIDEO-003", posterRef: "GAL-VIDEO-003-POSTER" },
+  { id: "004", title: "Video 4", videoRef: "GAL-VIDEO-004", posterRef: "GAL-VIDEO-004-POSTER" },
+  { id: "005", title: "Video 5", videoRef: "GAL-VIDEO-005", posterRef: "GAL-VIDEO-005-POSTER" },
+  { id: "006", title: "Video 6", videoRef: "GAL-VIDEO-006", posterRef: "GAL-VIDEO-006-POSTER" },
+  { id: "007", title: "Video 7", videoRef: "GAL-VIDEO-007", posterRef: "GAL-VIDEO-007-POSTER" },
+  { id: "008", title: "Video 8", videoRef: "GAL-VIDEO-008", posterRef: "GAL-VIDEO-008-POSTER" },
+  { id: "009", title: "Video 9", videoRef: "GAL-VIDEO-009", posterRef: "GAL-VIDEO-009-POSTER" },
+  { id: "010", title: "Video 10", videoRef: "GAL-VIDEO-010", posterRef: "GAL-VIDEO-010-POSTER" },
+  { id: "011", title: "Video 11", videoRef: "GAL-VIDEO-011", posterRef: "GAL-VIDEO-011-POSTER" },
+  { id: "012", title: "Video 12", videoRef: "GAL-VIDEO-012", posterRef: "GAL-VIDEO-012-POSTER" },
+  { id: "013", title: "Video 13", videoRef: "GAL-VIDEO-013", posterRef: "GAL-VIDEO-013-POSTER" },
+  { id: "014", title: "Video 14", videoRef: "GAL-VIDEO-014", posterRef: "GAL-VIDEO-014-POSTER" },
+  { id: "015", title: "Video 15", videoRef: "GAL-VIDEO-015", posterRef: "GAL-VIDEO-015-POSTER" },
+  { id: "016", title: "Video 16", videoRef: "GAL-VIDEO-016", posterRef: "GAL-VIDEO-016-POSTER" },
+  { id: "017", title: "Video 17", videoRef: "GAL-VIDEO-017", posterRef: "GAL-VIDEO-017-POSTER" },
+  { id: "018", title: "Video 18", videoRef: "GAL-VIDEO-018", posterRef: "GAL-VIDEO-018-POSTER" },
+  { id: "019", title: "Video 19", videoRef: "GAL-VIDEO-019", posterRef: "GAL-VIDEO-019-POSTER" },
+  { id: "020", title: "Video 20", videoRef: "GAL-VIDEO-020", posterRef: "GAL-VIDEO-020-POSTER" },
+  { id: "021", title: "Video 21", videoRef: "GAL-VIDEO-021", posterRef: "GAL-VIDEO-021-POSTER" },
+  { id: "022", title: "Video 22", videoRef: "GAL-VIDEO-022", posterRef: "GAL-VIDEO-022-POSTER" },
+  { id: "023", title: "Video 23", videoRef: "GAL-VIDEO-023", posterRef: "GAL-VIDEO-023-POSTER" },
+  { id: "024", title: "Video 24", videoRef: "GAL-VIDEO-024", posterRef: "GAL-VIDEO-024-POSTER" },
+  { id: "025", title: "Video 25", videoRef: "GAL-VIDEO-025", posterRef: "GAL-VIDEO-025-POSTER" },
+  { id: "026", title: "Video 26", videoRef: "GAL-VIDEO-026", posterRef: "GAL-VIDEO-026-POSTER" },
+  { id: "027", title: "Video 27", videoRef: "GAL-VIDEO-027", posterRef: "GAL-VIDEO-027-POSTER" },
+  { id: "028", title: "Video 28", videoRef: "GAL-VIDEO-028", posterRef: "GAL-VIDEO-028-POSTER" },
+  { id: "029", title: "Video 29", videoRef: "GAL-VIDEO-029", posterRef: "GAL-VIDEO-029-POSTER" },
+  { id: "030", title: "Video 30", videoRef: "GAL-VIDEO-030", posterRef: "GAL-VIDEO-030-POSTER" },
+];
