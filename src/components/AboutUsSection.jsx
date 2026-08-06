@@ -26,7 +26,7 @@ const AboutUsSection = () => {
             aria-label="Read more about Gajanand Packaging Solutions"
             className="inline-block w-full text-center bg-red-700 text-white px-8 py-3 rounded font-bold hover:bg-red-800 transition"
           >
-            READ MORE
+            READ ABOUT US
           </Link>
         </div>
 
@@ -48,12 +48,12 @@ const AboutUsSection = () => {
             <p className="text-gray-600 text-base leading-relaxed mb-4">{company.about.brief}</p>
             <p className="text-gray-600 text-base leading-relaxed mb-6">{company.about.commitment}</p>
             <Link
-              to="/about"
-              aria-label="Read more about Gajanand Packaging Solutions"
-              className="inline-block bg-red-700 text-white px-8 py-3 rounded font-bold hover:bg-red-800 transition"
-            >
-              READ MORE
-            </Link>
+            to="/about"
+            aria-label="Read more about Gajanand Packaging Solutions"
+            className="inline-block bg-red-700 text-white px-8 py-3 rounded font-bold hover:bg-red-800 transition"
+          >
+            READ ABOUT US
+          </Link>
           </div>
         </div>
       </div>
