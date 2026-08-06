@@ -82,9 +82,13 @@ const Footer = () => {
                 </li>
               ))}
               <li>
-                <Link to="/products" className="text-gray-400 hover:text-red-400 text-sm transition flex items-center gap-2">
-                  <span className="text-red-700">&rsaquo;</span> & More
-                </Link>
+                <Link
+  to="/products"
+  aria-label="View all packaging machine products"
+  className="text-gray-400 hover:text-red-400 text-sm transition flex items-center gap-2"
+>
+  <span className="text-red-700">›</span> & More
+</Link>
               </li>
             </ul>
           </div>
