@@ -25,10 +25,11 @@ export const company = {
   mapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.8177403217587!2d70.8198778!3d22.2848929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959b5f157412d4d%3A0x88d2f94b3046257f!2sGajanand%20Packaging%20Solutions!5e0!3m2!1sen!2sin!4v1785784713117!5m2!1sen!2sin",
   integrations: {
-    // Paste your deployed Google Apps Script Web App URL here to write enquiries to Google Sheets.
-    googleSheetWebhookUrl: import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL || "",
-    // googleSheetUrl: "",
-  },
+  // Paste your deployed Google Apps Script Web App URL here to write enquiries to Google Sheets.
+  googleSheetWebhookUrl:
+    (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL) || "",
+  // googleSheetUrl: "",
+},
   // TODO: paste your real profile URLs in here — the floating social bar
   // and footer icons read straight from this object.
   socials: {
