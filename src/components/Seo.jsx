@@ -151,7 +151,7 @@ const Seo = () => {
       geo: { "@type": "GeoCoordinates", latitude: company.geo.latitude, longitude: company.geo.longitude },
       openingHours: "Mo-Sa 09:00-18:00",
       sameAs: Object.values(company.socials).filter((v) => v && v !== "#"),
-      makesOffer: company.manufactures.map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Product", name } })),
+      makesOffer: company.manufactures.map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
     });
 
     // Breadcrumb schema — only present on product/category pages.
