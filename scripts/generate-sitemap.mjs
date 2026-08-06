@@ -10,7 +10,7 @@ import { writeFileSync } from "fs";
 import { categories, allProductsFlat } from "../src/data/products.js";
 import { company } from "../src/data/company.js";
 
-const DOMAIN = company.domain?.startsWith("http") ? company.domain : "https://www.yourdomain.com";
+const DOMAIN = company.domain?.startsWith("http") ? company.domain : "https://www.gajanandpakagingsolution.com";
 
 const staticUrls = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
