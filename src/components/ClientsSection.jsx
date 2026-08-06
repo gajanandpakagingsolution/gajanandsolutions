@@ -21,7 +21,7 @@ const ClientCard = ({ c }) => (
     </span>
 
     {c.logo ? (
-      <img src={c.logo} alt={c.name} className="h-11 w-auto object-contain" />
+      <img src={c.logo} alt={c.name} width="176" height="44" loading="lazy" decoding="async" className="h-11 w-auto object-contain" />
     ) : (
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-red-800 text-sm font-bold text-white shadow-md ring-4 ring-red-50 transition-transform duration-300 group-hover:scale-110">
         {initials(c.name)}

@@ -61,6 +61,14 @@ const STATIC_SEO = {
     title: `Contact Us | ${company.name} — Rajkot, Gujarat`,
     description: `Get in touch with ${company.name} for a quote on packaging machines. Call ${company.phone} or visit us in Rajkot, Gujarat.`,
   },
+  "/privacy-policy": {
+    title: `Privacy Policy | ${company.name}`,
+    description: `Read how ${company.name} handles enquiry and contact information submitted through the website.`,
+  },
+  "/terms-and-conditions": {
+    title: `Terms & Conditions | ${company.name}`,
+    description: `Review website terms for product information, quotations and machine specifications from ${company.name}.`,
+  },
 };
 
 // Figures out which page we're on and returns a unique title/description

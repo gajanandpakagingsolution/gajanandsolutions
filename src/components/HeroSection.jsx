@@ -114,16 +114,20 @@ const HeroSection = () => {
             </a>
           </div>
 
-          <div className="mt-6 flex items-center gap-2.5 md:mt-12">
+          <div className="mt-6 flex items-center gap-1 md:mt-12">
             {SLIDES.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActive(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
-                className={`h-3 rounded-full transition-all duration-500 ${
-                  idx === active ? "w-8 bg-[#BE1E2D]" : "w-3 bg-[#D6D3D1] hover:bg-[#a8a29e]"
-                }`}
-              />
+                className="flex h-11 w-11 items-center justify-center rounded-full"
+              >
+                <span
+                  className={`h-3 rounded-full transition-all duration-500 ${
+                    idx === active ? "w-8 bg-[#BE1E2D]" : "w-3 bg-[#D6D3D1] hover:bg-[#a8a29e]"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>
@@ -143,6 +147,9 @@ const HeroSection = () => {
   <PlaceholderImage
     label={`Packaging Machine Slide ${active + 1}`}
     refCode={slide.refCode}
+    aspect="aspect-[4/3]"
+    loading="eager"
+    fetchPriority="high"
     className="h-full w-full object-contain"
   />
 </div>

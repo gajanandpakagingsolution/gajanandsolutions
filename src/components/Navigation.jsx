@@ -23,7 +23,7 @@ const Navigation = () => {
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-2.5 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/images/logo-red.svg" alt={company.name} className="h-11 w-auto" />
+          <img src="/images/logo-red.svg" alt={company.name} width="176" height="44" className="h-11 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -64,13 +64,19 @@ const Navigation = () => {
         <div className="md:hidden flex items-center gap-3">
           <a
             href={`tel:${company.phone.replace(/[^0-9+]/g, "")}`}
-            className="w-10 h-10 rounded-full bg-red-700 flex items-center justify-center text-white"
+            aria-label="Call Gajanand Packaging Solutions"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-red-700 text-white"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
           </a>
-          <button onClick={() => setOpen(!open)} className="text-gray-800">
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={open}
+            className="flex h-11 w-11 items-center justify-center text-gray-800"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {open ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />

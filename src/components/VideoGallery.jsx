@@ -41,7 +41,7 @@ const VideoCard = ({ item, onOpen }) => {
         variants={itemVariants}
         className="group relative aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-gray-300 bg-gray-50/80 p-4 flex flex-col items-center justify-center gap-2 text-center transition-colors hover:border-red-300 hover:bg-red-50/20"
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-400 group-hover:bg-red-100 group-hover:text-red-600 transition-colors">
+        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 group-hover:bg-red-100 group-hover:text-red-600 transition-colors">
           <Video className="h-5 w-5" />
         </div>
         <div>
@@ -105,7 +105,7 @@ const VideoCard = ({ item, onOpen }) => {
 
       {/* Video Title Label */}
       <div className="absolute bottom-0 left-0 right-0 p-4 text-left">
-        <h4 className="text-sm font-semibold text-white drop-shadow-sm line-clamp-1">{item.title}</h4>
+        <div className="text-sm font-semibold text-white drop-shadow-sm line-clamp-1">{item.title}</div>
       </div>
     </motion.button>
   );
@@ -147,7 +147,7 @@ const Lightbox = ({ item, onClose }) => {
               type="button"
               onClick={onClose}
               aria-label="Close video modal"
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md transition-all hover:bg-white hover:text-black focus:outline-none"
+              className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md transition-all hover:bg-white hover:text-black focus:outline-none"
             >
               <X className="h-5 w-5" />
             </button>
@@ -169,8 +169,6 @@ const Lightbox = ({ item, onClose }) => {
 };
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  if (totalPages <= 1) return null;
-
   // Build a compact page list: 1 ... p-1 p p+1 ... last
   const pages = useMemo(() => {
     const range = new Set([1, totalPages, currentPage, currentPage - 1, currentPage + 1]);
@@ -187,6 +185,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     withEllipses.push(p);
   });
 
+  if (totalPages <= 1) return null;
+
   return (
     <nav
       aria-label="Video gallery pagination"
@@ -197,7 +197,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         aria-label="Previous page"
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-colors hover:border-red-300 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:bg-transparent disabled:hover:text-gray-500"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-colors hover:border-red-300 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:bg-transparent disabled:hover:text-gray-500"
       >
         <ChevronLeft className="h-4 w-4" />
       </button>
@@ -213,7 +213,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             type="button"
             onClick={() => onPageChange(p)}
             aria-current={p === currentPage ? "page" : undefined}
-            className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
+            className={`flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
               p === currentPage
                 ? "bg-red-700 text-white shadow-md shadow-red-700/20"
                 : "text-gray-600 hover:bg-red-50 hover:text-red-700"
@@ -229,7 +229,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         aria-label="Next page"
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-colors hover:border-red-300 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:bg-transparent disabled:hover:text-gray-500"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-colors hover:border-red-300 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:bg-transparent disabled:hover:text-gray-500"
       >
         <ChevronRight className="h-4 w-4" />
       </button>

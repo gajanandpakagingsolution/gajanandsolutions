@@ -15,7 +15,7 @@ const SiteLoader = () => {
       <div className="relative flex flex-col items-center">
         <div className="absolute h-24 w-24 rounded-full border border-red-100" />
         <div className="h-20 w-20 rounded-full border-4 border-gray-100 border-t-red-700 animate-spin" />
-        <img src="/images/logo-red.png" alt="Gajanand Packaging Solutions" className="absolute top-1/2 h-10 w-auto -translate-y-1/2" />
+        <img src="/images/logo-red.png" alt="Gajanand Packaging Solutions" width="160" height="40" decoding="async" className="absolute top-1/2 h-10 w-auto -translate-y-1/2" />
       </div>
     </div>
   );

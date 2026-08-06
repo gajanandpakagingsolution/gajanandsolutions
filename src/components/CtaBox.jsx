@@ -12,6 +12,10 @@ const CtaBox = () => {
     <img
       src={company.logo}
       alt="Owner Logo"
+      width="48"
+      height="48"
+      loading="lazy"
+      decoding="async"
       className="w-10 h-10 md:w-12 md:h-12 object-contain"
     />
   ) : (

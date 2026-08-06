@@ -53,14 +53,16 @@ const Testimonial = () => {
             {t.city ? `, ${t.city}` : ""}
           </div>
         </div>
-        <div className="mt-6 flex justify-center gap-2">
+        <div className="mt-6 flex justify-center gap-1">
           {TESTIMONIALS.map((item, i) => (
             <button
               key={item.author + i}
               onClick={() => setActive(i)}
               aria-label={`Show testimonial ${i + 1}`}
-              className={`h-2.5 rounded-full transition-all ${i === active ? "w-6 bg-red-700" : "w-2.5 bg-gray-300"}`}
-            />
+              className="flex h-11 w-11 items-center justify-center rounded-full"
+            >
+              <span className={`h-2.5 rounded-full transition-all ${i === active ? "w-6 bg-red-700" : "w-2.5 bg-gray-300"}`} />
+            </button>
           ))}
         </div>
       </div>
