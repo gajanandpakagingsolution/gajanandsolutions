@@ -1,5 +1,18 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/products", "destination": "/index.html" },
+    { "source": "/products/:category", "destination": "/index.html" },
+    { "source": "/products/:category/:product", "destination": "/index.html" },
+    { "source": "/gallery", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" },
+    { "source": "/privacy-policy", "destination": "/index.html" },
+    { "source": "/terms-and-conditions", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
