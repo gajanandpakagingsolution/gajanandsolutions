@@ -5,8 +5,8 @@ export const company = {
   legalName: "Gajanand Packaging Solution",
   domain: "https://www.gajanandpakagingsolution.com",
   tagline: "Leading Manufacturer & Supplier of Packaging Machines",
-  seoDescription:
-    "Gajanand Packaging Solutions is a Rajkot, Gujarat based manufacturer and supplier of packaging machines, including bag sealers, strapping machines, shrink tunnels, vacuum packing machines, conveyors and wrapping machines.",
+ seoDescription:
+  "Rajkot, Gujarat based manufacturer of bag sealers, strapping, shrink wrap, vacuum packing and conveyor machines. Get a quote today.",
   contactPerson: "Hitesh Bhai",
   whatsapp: "+91 93774 84042",
   phone: "+91 81283 23242",
