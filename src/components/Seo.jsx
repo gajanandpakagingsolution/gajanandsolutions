@@ -41,10 +41,14 @@ const removeJsonLd = (id) => {
 // Static pages that aren't products/categories — add a row here any time you
 // add a new top-level page (e.g. a future blog or FAQ page).
 const STATIC_SEO = {
+  // "/": {
+  //   title: `${company.name} | Packaging Machine Manufacturer in Rajkot`,
+  //   description: company.seoDescription,
+  // },
   "/": {
-    title: `${company.name} | Packaging Machine Manufacturer in Rajkot`,
-    description: company.seoDescription,
-  },
+  title: `${company.name} | Rajkot`,
+  description: company.seoDescription,
+},
   "/about": {
     title: `About Us | ${company.name} — Rajkot, Gujarat`,
     description: `${company.about.brief.slice(0, 150)}…`,
