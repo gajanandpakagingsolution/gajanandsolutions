@@ -5,7 +5,8 @@ import PlaceholderImage from "../components/PlaceholderImage";
 import { company } from "../data/company";
 import { findCategory, findProduct } from "../data/products";
 import { useEnquiry } from "../context/EnquiryContext";
-import CursorZoomImage from "../features/CursorZoomImage"
+//import CursorZoomImage from "../features/CursorZoomImage"
+import ProductImageSlider from "@/ProductImageSlider";
 
 const ProductDetailPage = () => {
   const { categorySlug, productSlug } = useParams();
@@ -31,14 +32,9 @@ const ProductDetailPage = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-10">
             <div className="w-full aspect-square rounded-lg">
-  <CursorZoomImage>
-    <PlaceholderImage
-      label={product.name}
-      refCode={product.imageRef}
-      aspect="aspect-square"
-      className="w-full h-full object-cover"
-    />
-  </CursorZoomImage>
+  
+    <ProductImageSlider product={product} />
+  
 </div>
             <div>
               <div className="text-red-700 text-sm font-semibold uppercase tracking-wide mb-2">{category.name}</div>

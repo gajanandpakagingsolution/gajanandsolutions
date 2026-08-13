@@ -125,6 +125,26 @@ export const getProductImage = (product) => {
   return `${PRODUCT_IMAGE_DIR}/${product.slug}.jpg`;
 };
 
+// --- Multiple product photos (for the detail-page slider) ---
+// Same slug-based approach, but allows up to MAX_PRODUCT_IMAGES per product:
+//   <slug>.jpg   (primary — same file getProductImage() already looks for)
+//   <slug>-2.jpg
+//   <slug>-3.jpg
+//   <slug>-4.jpg
+//   <slug>-5.jpg
+// Drop in however many you have; missing ones are skipped automatically,
+// nothing to configure.
+const MAX_PRODUCT_IMAGES = 5;
+
+export const getProductImageCandidates = (product) => {
+  if (!product || !product.slug) return [];
+  const paths = [`${PRODUCT_IMAGE_DIR}/${product.slug}.jpg`];
+  for (let i = 2; i <= MAX_PRODUCT_IMAGES; i++) {
+    paths.push(`${PRODUCT_IMAGE_DIR}/${product.slug}-${i}.jpg`);
+  }
+  return paths;
+};
+
 // Back-compat: if any existing code still calls getImage(product.imageRef),
 // this keeps working too — it looks the ref code up on allProductsFlat,
 // finds that product, and resolves the image from ITS slug (not the ref
