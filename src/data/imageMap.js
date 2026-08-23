@@ -1,30 +1,22 @@
 // ============================================================================
 // ADD YOUR IMAGES HERE — this is the ONE file you need to edit.
 //
-// *** CHANGED FROM THE OLD VERSION ***
-// The old version keyed product photos off `imageRef` (IMG-001, IMG-002...),
-// a number based purely on each product's *position* in the list. That's
-// fragile — reorder, add, or remove a single product anywhere in
-// products.js and every ref number after it shifts, silently pairing every
-// product below the change with the wrong photo.
-//
-// This version keys product photos off each product's own `slug` instead
-// (already computed in products.js from its name + model number, e.g.
-// "automatic-pillow-packaging-machine-sp-450x"). A product's slug only
-// changes if you change ITS OWN name/model — so this can't drift out of
-// sync no matter how you reorder, add, or remove other products.
+// Product photos are keyed off each product's own `slug` (computed in
+// products.js from its name + model number). A product's slug only changes
+// if you change ITS OWN name/model — so this can't drift out of sync no
+// matter how you reorder, add, or remove other products.
 //
 // How to add/replace a product photo:
 //   1. Drop the image file into public/images/products/
-//   2. Name the file exactly "<product-slug>.jpg" — you can find a
-//      product's slug printed in its imageRef/slug field, or just derive
-//      it yourself: lowercase the name + model number, replace anything
-//      that isn't a-z/0-9 with a dash.
-//   3. Save. No code change needed — getProductImage() below builds the
-//      path automatically from the slug.
+//   2. Name the file exactly "<product-slug>.<ext>" where <ext> is jpg,
+//      jpeg, png, or webp — you can find a product's slug printed in its
+//      imageRef/slug field, or just derive it yourself: lowercase the name
+//      + model number, replace anything that isn't a-z/0-9 with a dash.
+//   3. Save. No code change needed — getProductImage()/getProductImageCandidates()
+//      below try every extension automatically and use whichever exists.
 //
-// If a file is missing for a given slug, getProductImage() returns null
-// and your placeholder box shows instead (same behavior as before).
+// If no file is found for a given slug, getProductImage() returns null and
+// your placeholder box shows instead (same behavior as before).
 // ============================================================================
 
 import { allProductsFlat } from "./products";
@@ -116,31 +108,39 @@ export const imageMap = {
 };
 
 // --- Product photos: derived automatically from each product's own slug ---
-// No manual list to maintain and no way for it to drift out of sync — every
-// product's photo path is computed straight from that product's own slug.
 const PRODUCT_IMAGE_DIR = "/images/products";
+
+// Your actual files mix .jpg / .jpeg / .png (e.g. primaries are .jpg but
+// many "-2" secondary shots are .jpeg or .png) — so every candidate path is
+// generated in each extension. ProductImageSlider already probes each URL
+// with new Image() and only keeps the ones that actually load, so trying
+// extra extensions that don't exist is harmless.
+const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp"];
 
 export const getProductImage = (product) => {
   if (!product || !product.slug) return null;
+  // Best-guess single path for places that just need "a" primary image
+  // (e.g. category/index grid thumbnails) — still defaults to .jpg first.
   return `${PRODUCT_IMAGE_DIR}/${product.slug}.jpg`;
 };
 
 // --- Multiple product photos (for the detail-page slider) ---
-// Same slug-based approach, but allows up to MAX_PRODUCT_IMAGES per product:
-//   <slug>.jpg   (primary — same file getProductImage() already looks for)
-//   <slug>-2.jpg
-//   <slug>-3.jpg
-//   <slug>-4.jpg
-//   <slug>-5.jpg
-// Drop in however many you have; missing ones are skipped automatically,
-// nothing to configure.
+// Slug-based, up to MAX_PRODUCT_IMAGES per product:
+//   <slug>.jpg | .jpeg | .png | .webp        (primary)
+//   <slug>-2.jpg | .jpeg | .png | .webp
+//   <slug>-3.jpg | .jpeg | .png | .webp
+//   ...
+// Missing ones are skipped automatically by the slider's own probing.
 const MAX_PRODUCT_IMAGES = 5;
 
 export const getProductImageCandidates = (product) => {
   if (!product || !product.slug) return [];
-  const paths = [`${PRODUCT_IMAGE_DIR}/${product.slug}.jpg`];
-  for (let i = 2; i <= MAX_PRODUCT_IMAGES; i++) {
-    paths.push(`${PRODUCT_IMAGE_DIR}/${product.slug}-${i}.jpg`);
+  const paths = [];
+  for (let i = 1; i <= MAX_PRODUCT_IMAGES; i++) {
+    const base = i === 1 ? product.slug : `${product.slug}-${i}`;
+    IMAGE_EXTENSIONS.forEach((ext) => {
+      paths.push(`${PRODUCT_IMAGE_DIR}/${base}.${ext}`);
+    });
   }
   return paths;
 };
