@@ -1,5 +1,5 @@
-import React from "react";
-import { getImage } from "../data/imageMap";
+import React, { useEffect, useState } from "react";
+import { getImage, getProductImageCandidates } from "../data/imageMap";
 
 /**
  * Renders a real image if one is available, otherwise a labeled placeholder
@@ -7,10 +7,14 @@ import { getImage } from "../data/imageMap";
  *
  * Image resolution order:
  *   1. explicit `src` prop (if you pass one directly)
- *   2. a lookup in src/data/imageMap.js by `refCode` — THIS is the file to
- *      edit to add real photos across the whole site, see the comment block
- *      at the top of imageMap.js for instructions.
- *   3. otherwise, the dashed placeholder box with the label + ref code.
+ *   2. if a `product` object is passed, probes every real candidate file
+ *      for that product (every extension / numbered slot from
+ *      getProductImageCandidates in imageMap.js) and uses whichever one
+ *      actually loads.
+ *   3. otherwise, a lookup in src/data/imageMap.js by `refCode` — used for
+ *      fixed site-wide slots (HERO-IMG-1, GAL-001, etc.) whose paths are
+ *      already known-correct.
+ *   4. otherwise, the dashed placeholder box with the label + ref code.
  *
  * Sizing note: this component does NOT impose its own width/height/fit —
  * the caller's `className` fully controls size and fit (e.g. pass
@@ -23,10 +27,63 @@ const dimensionsForAspect = (aspect = "") => {
   return { width: 1200, height: 900 };
 };
 
-const PlaceholderImage = ({ src, alt, label, refCode, aspect = "", className = "", loading = "lazy", fetchPriority }) => {
-  const resolvedSrc = src || getImage(refCode);
+const PlaceholderImage = ({
+  src,
+  alt,
+  label,
+  refCode,
+  product, // NEW — pass a product object to probe its real photo files
+  aspect = "",
+  className = "",
+  loading = "lazy",
+  fetchPriority,
+}) => {
   const { width, height } = dimensionsForAspect(aspect);
   const sizingClass = `${aspect} ${className}`.trim();
+
+  // undefined = still probing, null = none found (only relevant when `product` is passed)
+  const [probedSrc, setProbedSrc] = useState(null);
+
+  useEffect(() => {
+    if (!product) {
+      setProbedSrc(null);
+      return;
+    }
+    let cancelled = false;
+    setProbedSrc(undefined);
+
+    const candidates = getProductImageCandidates(product);
+
+    (async () => {
+      for (const url of candidates) {
+        if (cancelled) return;
+        const ok = await new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve(true);
+          img.onerror = () => resolve(false);
+          img.src = url;
+        });
+        if (cancelled) return;
+        if (ok) {
+          setProbedSrc(url);
+          return;
+        }
+      }
+      if (!cancelled) setProbedSrc(null);
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [product]);
+
+  const resolvedSrc = src || (product ? probedSrc : getImage(refCode));
+
+  // Still checking candidate files for a product image — avoid flashing
+  // the placeholder box before the real photo has a chance to resolve.
+  if (product && probedSrc === undefined) {
+    return <div className={`${sizingClass} bg-gray-100 animate-pulse rounded-2xl`} />;
+  }
 
   if (resolvedSrc) {
     return (

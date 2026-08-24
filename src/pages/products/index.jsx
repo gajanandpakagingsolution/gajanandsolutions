@@ -169,6 +169,7 @@ const ProductsIndexPage = () => {
                           to={`/products/${p.categorySlug}/${p.slug}`}
                           image={
                             <PlaceholderImage
+                              product={p}
                               label={p.name}
                               refCode={p.imageRef}
                               className="h-full w-full object-cover"
@@ -201,6 +202,7 @@ const ProductsIndexPage = () => {
                     to={`/products/${cat.slug}`}
                     image={
                       <PlaceholderImage
+                        product={cat.products[0]}
                         label={cat.name}
                         refCode={cat.products[0]?.imageRef}
                         className="h-full w-full object-cover"

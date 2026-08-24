@@ -55,6 +55,7 @@ const ProductsSection = () => {
               >
                 <div className="relative overflow-hidden bg-gray-100">
                   <PlaceholderImage
+                    product={cat.products[0]}
                     label={cat.name}
                     refCode={cat.products[0]?.imageRef}
                     aspect="aspect-[4/3] md:aspect-[16/10]"

@@ -104,7 +104,7 @@ const ProductDetailPage = () => {
                     to={`/products/${category.slug}/${p.slug}`}
                     className="flex-shrink-0 w-36 md:w-40 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition overflow-hidden"
                   >
-                    <PlaceholderImage label={p.name} refCode={p.imageRef} aspect="aspect-square" className="w-full" />
+                    <PlaceholderImage product={p} label={p.name} refCode={p.imageRef} aspect="aspect-square" className="w-full" />
                     <div className="p-2.5 md:p-3 text-xs md:text-sm font-medium text-gray-700 truncate">{p.name}</div>
                   </Link>
                 ))}

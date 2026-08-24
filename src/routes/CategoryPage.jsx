@@ -22,7 +22,7 @@ const CategoryPage = () => {
                 to={`/products/${category.slug}/${p.slug}`}
                 className="flex flex-col bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group"
               >
-                <PlaceholderImage label={p.name} refCode={p.imageRef} aspect="aspect-square" className="w-full" />
+                <PlaceholderImage product={p} label={p.name} refCode={p.imageRef} aspect="aspect-square" className="w-full" />
                 <div className="p-4">
                   <div className="font-semibold text-gray-800 group-hover:text-red-700 transition">{p.name}</div>
                   {p.modelNo && p.modelNo !== "-" && (
