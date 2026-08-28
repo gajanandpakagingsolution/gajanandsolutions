@@ -17,18 +17,18 @@ const AboutPage = () => {
           </div>
 
           <h2 className="text-2xl font-bold text-red-700 mb-3">Company Brief</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">{company.about.brief}</p>
-          <p className="text-gray-600 leading-relaxed mb-10">{company.about.commitment}</p>
+          <p className="text-gray-600 leading-relaxed mb-4 text-justify">{company.about.brief}</p>
+          <p className="text-gray-600 leading-relaxed mb-10 text-justify">{company.about.commitment}</p>
 
           <h2 className="text-2xl font-bold text-red-700 mb-3">Why Choose Us?</h2>
-          <p className="text-gray-600 leading-relaxed mb-10">{company.about.whyChooseUs}</p>
+          <p className="text-gray-600 leading-relaxed mb-10 text-justify">{company.about.whyChooseUs}</p>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-red-700">
               <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
                 <span className="text-red-700">&#9673;</span> Vision
               </h3>
-              <p className="text-gray-600 text-sm">{company.about.vision}</p>
+              <p className="text-gray-600 text-sm text-justify">{company.about.vision}</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-red-700">
               <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">

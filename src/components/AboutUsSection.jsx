@@ -16,7 +16,8 @@ const AboutUsSection = () => {
             refCode="ABOUT-IMG"
             className="inline-block w-auto h-auto rounded-2xl shadow-md mb-5"
           />
-          <p className="text-gray-600 text-sm leading-relaxed mb-5">
+          {/* Added text-justify */}
+          <p className="text-gray-600 text-sm leading-relaxed mb-5 text-justify">
             {company.name} is a leading manufacturer and supplier of premium quality packaging machines. We are
             committed to delivering innovative solutions with reliable service and support to our valuable
             customers.
@@ -45,15 +46,21 @@ const AboutUsSection = () => {
               <span className="text-red-700 font-semibold text-sm tracking-widest uppercase">About Us</span>
             </div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Who We Are</h2>
-            <p className="text-gray-600 text-base leading-relaxed mb-4">{company.about.brief}</p>
-            <p className="text-gray-600 text-base leading-relaxed mb-6">{company.about.commitment}</p>
+            {/* Added text-justify */}
+            <p className="text-gray-600 text-base leading-relaxed mb-4 text-justify">
+              {company.about.brief}
+            </p>
+            {/* Added text-justify */}
+            <p className="text-gray-600 text-base leading-relaxed mb-6 text-justify">
+              {company.about.commitment}
+            </p>
             <Link
-            to="/about"
-            aria-label="Read more about Gajanand Packaging Solutions"
-            className="inline-block bg-red-700 text-white px-8 py-3 rounded font-bold hover:bg-red-800 transition"
-          >
-            READ ABOUT US
-          </Link>
+              to="/about"
+              aria-label="Read more about Gajanand Packaging Solutions"
+              className="inline-block bg-red-700 text-white px-8 py-3 rounded font-bold hover:bg-red-800 transition"
+            >
+              READ ABOUT US
+            </Link>
           </div>
         </div>
       </div>
